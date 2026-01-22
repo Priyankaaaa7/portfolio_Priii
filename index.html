@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Priyanka Soni | Dual-Domain Engineer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #ffeef8 0%,
+          #e8d5ff 50%,
+          #d5f4ff 100%
+        );
+        color: #2d2d2d;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: linear-gradient(135deg, #ff9de6 0%, #c89dff 100%);
+        padding: 60px 40px;
+        border-radius: 30px;
+        box-shadow: 0 10px 40px rgba(255, 157, 230, 0.3);
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 70%
+        );
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(-20px, -20px) rotate(180deg);
+        }
+      }
+
+      h1 {
+        font-size: 3em;
+        color: white;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .tagline {
+        font-size: 1.3em;
+        color: #fff;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-info {
+        margin-top: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-info a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .contact-info a:hover {
+        transform: translateY(-2px);
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .section {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 25px rgba(200, 157, 255, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 35px rgba(200, 157, 255, 0.25);
+      }
+
+      h2 {
+        color: #c89dff;
+        font-size: 2em;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #ffe5f9;
+      }
+
+      h3 {
+        color: #ff9de6;
+        font-size: 1.4em;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .skill-card {
+        background: linear-gradient(135deg, #fff5fc 0%, #f5f0ff 100%);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid #ff9de6;
+        transition: all 0.3s ease;
+      }
+
+      .skill-card:hover {
+        border-left-width: 8px;
+        transform: translateX(5px);
+      }
+
+      .skill-card strong {
+        color: #c89dff;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+      }
+
+      .projects-row {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .projects-scroll {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #ff9de6 #ffe5f9;
+      }
+
+      .projects-scroll::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .projects-scroll::-webkit-scrollbar-track {
+        background: #ffe5f9;
+        border-radius: 10px;
+      }
+
+      .projects-scroll::-webkit-scrollbar-thumb {
+        background: #ff9de6;
+        border-radius: 10px;
+      }
+
+      .project {
+        min-width: 400px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 5px 25px rgba(200, 157, 255, 0.15);
+      }
+
+      .project:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 40px rgba(255, 157, 230, 0.3);
+      }
+
+      .project-image {
+        height: 180px;
+        background: linear-gradient(135deg, #ff9de6 0%, #c89dff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4em;
+      }
+
+      .project-content {
+        padding: 25px;
+      }
+
+      .project-title {
+        color: #ff9de6;
+        font-size: 1.3em;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .project-tech {
+        color: #c89dff;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .project ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .project li {
+        color: #555;
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+        font-size: 0.9em;
+      }
+
+      .project li:before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        color: #ff9de6;
+        font-size: 0.7em;
+      }
+
+      .project-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #ff9de6;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        color: #c89dff;
+        transform: translateX(5px);
+      }
+
+      .experience-item {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #fffafd 0%, #faf7ff 100%);
+        border-radius: 15px;
+        border-left: 5px solid #c89dff;
+      }
+
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .experience-title {
+        color: #ff9de6;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+      .experience-date {
+        color: #c89dff;
+        font-size: 0.9em;
+        font-weight: 500;
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      .badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff9de6 0%, #c89dff 100%);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        margin: 5px;
+        font-size: 0.9em;
+        font-weight: 500;
+        box-shadow: 0 3px 10px rgba(255, 157, 230, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 157, 230, 0.4);
+      }
+
+      .education-item {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: linear-gradient(135deg, #fff9fd 0%, #f8f5ff 100%);
+        border-radius: 15px;
+      }
+
+      .education-school {
+        color: #ff9de6;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+      .education-details {
+        color: #666;
+        margin-top: 8px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px;
+        color: #666;
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2em;
+        }
+        .tagline {
+          font-size: 1.1em;
+        }
+        .section {
+          padding: 25px;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Priyanka Soni</h1>
+        <p class="tagline">
+          Dual-Domain Engineer | Backend Systems × Hardware Research
+        </p>
+        <div class="contact-info">
+          <a href="mailto:Psoni250305@gmail.com">📧 Email</a>
+          <a href="tel:+919116384079">📱 +91-9116384079</a>
+          <a href="#">💼 LinkedIn</a>
+          <a href="#">💻 GitHub</a>
+        </div>
+      </header>
+
+      <div class="section">
+        <h2>About Me</h2>
+        <p>
+          I am a dual-domain engineer with strong foundations in Computer
+          Science and Electronics & Communication, combining backend systems
+          thinking with research-driven hardware and signal processing work. I
+          build scalable, reliable software systems while also working deeply
+          with DSP, wireless communication, embedded systems, and VLSI
+          verification.
+        </p>
+        <p style="margin-top: 15px">
+          On the CS side, my focus is backend development — designing RESTful
+          APIs, data-driven applications, and production-ready systems using
+          Python, Flask, and structured databases. I prioritize clean
+          architecture, testability, and real-world usability.
+        </p>
+        <p style="margin-top: 15px">
+          On the ECE side, I approach engineering as research and
+          experimentation. My work spans energy-efficient wireless sensor
+          networks, OFDM modulation, biomedical signal processing, and embedded
+          systems, with hands-on validation through simulations and hardware
+          testing.
+        </p>
+        <p style="margin-top: 15px">
+          <strong style="color: #ff9de6">I'm driven by impact</strong> —
+          building systems that are not just functional, but intentional,
+          efficient, and meaningful.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+          <div class="education-school">
+            Vellore Institute of Technology, Chennai
+          </div>
+          <div class="education-details">
+            B.Tech in Electronics and Communication Engineering | CGPA: 7.7 |
+            Expected July 2027
+          </div>
+          <div style="margin-top: 10px; color: #888; font-size: 0.95em">
+            Relevant Coursework: Data Structures & Algorithms, Operating
+            Systems, DBMS, Computer Networks, Software Engineering,
+            Communication Systems, Digital Signal Processing, VLSI
+          </div>
+        </div>
+        <div class="education-item">
+          <div class="education-school">Warren Academy, Jaipur</div>
+          <div class="education-details">
+            CBSE Class XII (PCM + IT) | Percentage: 76.2 | March 2023
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <strong>Programming</strong>
+            Python, Java, C++, C, SQL, Verilog, MATLAB
+          </div>
+          <div class="skill-card">
+            <strong>Backend & APIs</strong>
+            Flask, RESTful APIs, Authentication, API Versioning, JSON
+          </div>
+          <div class="skill-card">
+            <strong>Databases</strong>
+            MySQL, PostgreSQL, MongoDB, Data Modeling, Indexing
+          </div>
+          <div class="skill-card">
+            <strong>ECE Core</strong>
+            Communication Systems, DSP, Microcontrollers, VLSI, Embedded
+            Systems, Network Theory
+          </div>
+          <div class="skill-card">
+            <strong>Simulation & Tools</strong>
+            MATLAB, LTspice, Cadence, Cisco Packet Tracer, NetSim, Keil, Icarus
+            Verilog, GTKWave
+          </div>
+          <div class="skill-card">
+            <strong>DevOps & Cloud</strong>
+            Git, GitHub, Linux, Docker, AWS (EC2, S3), GitHub Actions, CI/CD
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Software Projects</h2>
+        <div class="projects-row">
+          <div class="projects-scroll">
+            <div class="project">
+              <div class="project-image">🛒</div>
+              <div class="project-content">
+                <div class="project-title">
+                  SmartKart – AI-Powered Grocery Assistant
+                </div>
+                <div class="project-tech">
+                  Python • Flask • REST APIs • SQL • CI/CD
+                </div>
+                <ul>
+                  <li>
+                    Designed full-stack backend using Flask to manage grocery
+                    inventory, expiry tracking, and user data
+                  </li>
+                  <li>
+                    Implemented real-time expiry monitoring, reducing simulated
+                    food wastage by approximately 30%
+                  </li>
+                  <li>
+                    Integrated Spoonacular API for personalized recipe
+                    recommendations based on pantry items
+                  </li>
+                  <li>
+                    Built dynamic budget tracking module with automatic
+                    recalculation on item updates
+                  </li>
+                  <li>
+                    Applied unit testing, integration testing, and CI pipelines
+                    for reliability and deployment consistency
+                  </li>
+                </ul>
+                <a
+                  href="https://github.com/Priyankaaaa7/SmartKart.git"
+                  class="project-link"
+                  target="_blank"
+                  >View on GitHub →</a
+                >
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-image">🏥</div>
+              <div class="project-content">
+                <div class="project-title">
+                  Expecting Ease – Healthcare Web Portal
+                </div>
+                <div class="project-tech">
+                  Python • JavaScript • HTML • CSS • REST APIs
+                </div>
+                <ul>
+                  <li>
+                    Developed healthcare platform with appointment scheduling,
+                    chatbot support, and pregnancy care resources
+                  </li>
+                  <li>
+                    Implemented REST APIs to support real-time user interactions
+                    across frontend and backend
+                  </li>
+                  <li>
+                    Advanced to final rounds of MEDITHON Hackathon as part of
+                    all-girls team
+                  </li>
+                  <li>
+                    Focused on usability, reliability, and clean API design for
+                    real-world deployment
+                  </li>
+                </ul>
+                <a
+                  href="https://priyankaaaa7.github.io/MEDITHON_PANS/index.html"
+                  class="project-link"
+                  target="_blank"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>ECE Research Projects</h2>
+        <div class="projects-row">
+          <div class="projects-scroll">
+            <div class="project">
+              <div class="project-image">📡</div>
+              <div class="project-content">
+                <div class="project-title">
+                  Green Modulation in Wireless Sensor Networks
+                </div>
+                <div class="project-tech">
+                  Arduino • GFSK • Wireless Communication • Energy Optimization
+                </div>
+                <ul>
+                  <li>
+                    Designed Arduino-based WSN prototype achieving 0.29 µJ/bit
+                    energy with 97–99% packet reliability
+                  </li>
+                  <li>
+                    Developed logical ID cycling technique to simulate 100-node
+                    network scalability
+                  </li>
+                  <li>
+                    Validated green modulation efficiency through precise
+                    current-sensing measurements
+                  </li>
+                  <li>
+                    Demonstrated 2.5–3x energy savings over standard schemes via
+                    hardware experimentation
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-image">📶</div>
+              <div class="project-content">
+                <div class="project-title">
+                  Toolbox-Free 16-QAM OFDM System Simulation
+                </div>
+                <div class="project-tech">
+                  MATLAB • Digital Signal Processing • Communication Theory
+                </div>
+                <ul>
+                  <li>
+                    Implemented end-to-end OFDM physical layer using 16-QAM, 64
+                    subcarriers, and cyclic prefix
+                  </li>
+                  <li>
+                    Developed custom QAM modulation/demodulation, AWGN modeling,
+                    and multipath channel simulation
+                  </li>
+                  <li>
+                    Applied FFT-based zero-forcing equalization over 4-tap
+                    frequency-selective channel
+                  </li>
+                  <li>
+                    Achieved BER < 10⁻³ at 18 dB and error-free performance
+                    above 24 dB SNR
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-image">💓</div>
+              <div class="project-content">
+                <div class="project-title">
+                  AI-Based ICU Multi-Patient Monitoring System
+                </div>
+                <div class="project-tech">
+                  MATLAB • Biomedical Signal Processing • AI Algorithms
+                </div>
+                <ul>
+                  <li>
+                    Developed system for simultaneous monitoring of ECG,
+                    respiration rate, and SpO2 signals
+                  </li>
+                  <li>
+                    Applied digital filtering, R-peak detection, and
+                    physiological feature extraction
+                  </li>
+                  <li>
+                    Implemented rule-based AI triage algorithm classifying
+                    patient states
+                  </li>
+                  <li>
+                    Designed multi-panel dashboards for real-time visualization
+                    and anomaly detection
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-image">🎵</div>
+              <div class="project-content">
+                <div class="project-title">
+                  Gesture-Based Music Control System (8051)
+                </div>
+                <div class="project-tech">
+                  AT89S52 (8051) • ADXL335 • HC-05 • Assembly • Embedded
+                </div>
+                <ul>
+                  <li>
+                    Built hands-free music control system using 8051
+                    microcontroller and accelerometer
+                  </li>
+                  <li>
+                    Implemented assembly-level firmware to classify tilt
+                    gestures and generate control commands
+                  </li>
+                  <li>
+                    Configured UART communication for low-latency wireless
+                    response
+                  </li>
+                  <li>
+                    Validated system performance through real-time gesture
+                    testing
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">
+              VLSI Design and Verification Intern – Ethnus
+            </div>
+            <div class="experience-date">May 2025 – July 2025</div>
+          </div>
+          <ul>
+            <li>
+              Designed and simulated Verilog HDL modules for FSMs and digital
+              logic circuits
+            </li>
+            <li>
+              Performed functional verification using test-driven debugging with
+              Icarus Verilog and GTKWave on Linux
+            </li>
+            <li>
+              Strengthened structured problem-solving, debugging discipline, and
+              systematic testing practices
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">
+              Artificial Intelligence Club – VIT Chennai
+            </div>
+            <div class="experience-date">Jan 2024 – Oct 2024</div>
+          </div>
+          <ul>
+            <li>
+              Contributed to student-led AI/ML projects with emphasis on model
+              correctness and testing workflows
+            </li>
+            <li>Organized university-level hackathon with 100+ participants</li>
+            <li>
+              Mentored juniors on Git-based collaboration and technical project
+              development
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Certifications & Achievements</h2>
+        <div style="margin-top: 20px">
+          <span class="badge">Google GenAI Program – Silver Badge</span>
+          <span class="badge">IIT Bombay Python Certification</span>
+          <span class="badge">HackerRank 4★ Python</span>
+          <span class="badge">HackerRank 3★ Java, C++, SQL</span>
+          <span class="badge">BCG GenAI Simulation (Forage)</span>
+          <span class="badge">MEDITHON Hackathon Finalist</span>
+        </div>
+      </div>
+
+      <footer>
+        <p>© 2026 Priyanka Soni. Built with care and precision.</p>
+      </footer>
+    </div>
+  </body>
+</html>
