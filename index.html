@@ -1,1135 +1,615 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Priyanka Soni — Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --ink: #111110;
-        --ink2: #3c3c3a;
-        --ink3: #6b6b68;
-        --ink4: #9b9b97;
-        --paper: #f5f3ee;
-        --paper2: #eceae4;
-        --paper3: #e2dfd8;
-        --accent: #1a1a1a;
-        --red: #c23b22;
-        --line: rgba(17, 17, 16, 0.12);
-        --mono: "DM Mono", monospace;
-        --serif: "Fraunces", serif;
-        --sans: "Instrument Sans", sans-serif;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: var(--sans);
-        background: var(--paper);
-        color: var(--ink);
-        line-height: 1.6;
-      }
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#111110;--ink2:#3c3c3a;--ink3:#6b6b68;--ink4:#9b9b97;
+  --paper:#f5f3ee;--paper2:#eceae4;--paper3:#e2dfd8;
+  --line:rgba(17,17,16,.1);
+  --mono:"DM Mono",monospace;--serif:"Fraunces",serif;--sans:"Instrument Sans",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
 
-      /* ── GRID SYSTEM ── */
-      .wrap {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,243,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 0;}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{font-family:var(--mono);font-size:12px;color:var(--ink3);letter-spacing:.08em;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:#2d9c4a;animation:blink 2.5s ease-in-out infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-family:var(--mono);font-size:11px;color:var(--ink4);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{font-family:var(--mono);font-size:11px;background:var(--ink);color:var(--paper);padding:6px 14px;border-radius:2px;text-decoration:none;letter-spacing:.06em;transition:opacity .2s;}
+.nav-cta:hover{opacity:.8;}
 
-      /* ── NAV ── */
-      nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-        padding: 14px 0;
-      }
-      nav .wrap {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .nav-logo {
-        font-family: var(--mono);
-        font-size: 13px;
-        color: var(--ink3);
-        letter-spacing: 0.05em;
-        text-decoration: none;
-      }
-      .nav-links {
-        display: flex;
-        gap: 28px;
-        list-style: none;
-      }
-      .nav-links a {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink3);
-        text-decoration: none;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover {
-        color: var(--ink);
-      }
+/* HERO */
+.hero-wrap{padding:96px 0 72px;border-bottom:1px solid var(--line);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;background:var(--paper2);border:1px solid var(--line);padding:6px 14px;border-radius:2px;}
+.hero h1{font-family:var(--serif);font-size:clamp(56px,8vw,100px);font-weight:300;line-height:.95;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;}
+.hero-sub{font-family:var(--mono);font-size:13px;color:var(--ink3);letter-spacing:.04em;margin-bottom:32px;line-height:1.8;}
+.hero-desc{max-width:580px;font-size:16px;color:var(--ink2);line-height:1.75;margin-bottom:44px;}
+.hero-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.hero-link{font-family:var(--mono);font-size:11px;color:var(--ink3);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid var(--paper3);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.hero-link:hover{color:var(--ink);border-color:var(--ink);}
+.hero-link.primary{background:var(--ink);color:var(--paper);padding:9px 20px;border-radius:2px;border:none;letter-spacing:.08em;}
+.hero-link.primary:hover{opacity:.85;}
+.hero-divider{width:1px;height:14px;background:var(--paper3);}
 
-      /* ── HERO ── */
-      .hero {
-        padding: 100px 0 80px;
-        border-bottom: 1px solid var(--line);
-      }
-      .hero-eyebrow {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-      }
-      .hero h1 {
-        font-family: var(--serif);
-        font-size: clamp(52px, 8vw, 96px);
-        font-weight: 300;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-        margin-bottom: 28px;
-      }
-      .hero h1 em {
-        font-style: italic;
-        color: var(--ink3);
-      }
-      .hero-desc {
-        max-width: 560px;
-        font-size: 17px;
-        color: var(--ink2);
-        line-height: 1.65;
-        margin-bottom: 40px;
-      }
-      .hero-meta {
-        display: flex;
-        gap: 24px;
-        flex-wrap: wrap;
-      }
-      .hero-meta a {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink3);
-        text-decoration: none;
-        letter-spacing: 0.04em;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 2px;
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-      }
-      .hero-meta a:hover {
-        color: var(--ink);
-        border-color: var(--ink);
-      }
-      .status-dot {
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #2d9c4a;
-        margin-right: 7px;
-        animation: pulse 2.5s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.4;
-        }
-      }
+/* STATS */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+.stat-cell{background:var(--paper);padding:24px 20px;}
+.stat-num{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--ink);line-height:1;margin-bottom:6px;}
+.stat-label{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.08em;text-transform:uppercase;}
 
-      /* ── SECTION BASE ── */
-      section {
-        padding: 80px 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .section-label {
-        font-family: var(--mono);
-        font-size: 45px;
-        color: var(--ink3);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 48px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .section-label::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--line);
-      }
+/* SECTIONS */
+section{padding:72px 0;border-bottom:1px solid var(--line);}
+.sec-label{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.16em;text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px;}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line);}
+.sec-num{color:var(--paper3);}
 
-      /* ── SKILLS ── */
-      .skills-table {
-        width: 100%;
-      }
-      .skill-row {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        gap: 24px;
-        padding: 18px 0;
-        border-bottom: 1px solid var(--line);
-        align-items: start;
-      }
-      .skill-row:last-child {
-        border-bottom: none;
-      }
-      .skill-category {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink4);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        padding-top: 2px;
-      }
-      .skill-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .tag {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink2);
-        background: var(--paper2);
-        border: 1px solid var(--line);
-        padding: 4px 10px;
-        border-radius: 3px;
-        letter-spacing: 0.02em;
-      }
-      .tag.hl {
-        background: var(--ink);
-        color: var(--paper);
-        border-color: var(--ink);
-      }
+/* SKILLS */
+.skill-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start;}
+.skill-row:last-child{border-bottom:none;}
+.skill-cat{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-family:var(--mono);font-size:11px;color:var(--ink2);background:var(--paper2);border:1px solid var(--line);padding:3px 10px;border-radius:2px;letter-spacing:.02em;}
+.tag.hl{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 
-      /* ── PROJECT GRID ── */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--line);
-      }
-      .project-card {
-        background: var(--paper);
-        padding: 36px;
-        transition: background 0.2s;
-      }
-      .project-card:hover {
-        background: var(--paper2);
-      }
-      .project-card.wide {
-        grid-column: 1 / -1;
-      }
-      .proj-num {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.08em;
-        margin-bottom: 20px;
-      }
-      .proj-title {
-        font-family: var(--serif);
-        font-size: 22px;
-        font-weight: 300;
-        color: var(--ink);
-        line-height: 1.25;
-        margin-bottom: 10px;
-      }
-      .proj-stack {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.05em;
-        margin-bottom: 18px;
-      }
-      .proj-body {
-        font-size: 14px;
-        color: var(--ink2);
-        line-height: 1.65;
-        margin-bottom: 20px;
-      }
-      .proj-bullets {
-        list-style: none;
-        margin-bottom: 24px;
-      }
-      .proj-bullets li {
-        font-size: 13.5px;
-        color: var(--ink2);
-        line-height: 1.6;
-        padding-left: 16px;
-        position: relative;
-        margin-bottom: 6px;
-      }
-      .proj-bullets li::before {
-        content: "—";
-        position: absolute;
-        left: 0;
-        color: var(--ink4);
-        font-size: 12px;
-        top: 2px;
-      }
-      .proj-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink3);
-        text-decoration: none;
-        letter-spacing: 0.06em;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 2px;
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-      }
-      .proj-link:hover {
-        color: var(--ink);
-        border-color: var(--ink);
-      }
-      .proj-link svg {
-        width: 12px;
-        height: 12px;
-        transition: transform 0.2s;
-      }
-      .proj-link:hover svg {
-        transform: translate(2px, -2px);
-      }
-      .proj-links {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
+/* PROJECT CARDS — stacked list style */
+.proj-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start;}
+.proj-item:last-child{border-bottom:none;}
+.proj-meta{}
+.proj-num{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.proj-tag-pill{display:inline-block;font-family:var(--mono);font-size:9px;border:1px solid var(--line);padding:2px 9px;border-radius:2px;letter-spacing:.06em;margin-bottom:0;}
+.proj-tag-pill.ai{background:#f0f7ee;border-color:#c5dfc0;color:#3a6b35;}
+.proj-tag-pill.sec{background:#f5f0ee;border-color:#d9c9c4;color:#6b3a35;}
+.proj-tag-pill.sys{background:#eef0f7;border-color:#c4c9d9;color:#353a6b;}
+.proj-tag-pill.web{background:#f7f3ee;border-color:#d9cfc4;color:#6b5035;}
+.proj-tag-pill.health{background:#f0f4f7;border-color:#c4d2d9;color:#2d5068;}
+.proj-body{}
+.proj-title{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:6px;}
+.proj-stack{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.05em;margin-bottom:16px;line-height:1.6;}
+.proj-bullets{list-style:none;margin-bottom:20px;}
+.proj-bullets li{font-size:13.5px;color:var(--ink2);line-height:1.65;padding-left:18px;position:relative;margin-bottom:6px;}
+.proj-bullets li::before{content:"—";position:absolute;left:0;color:var(--ink4);font-size:11px;top:3px;}
+.proj-links{display:flex;gap:16px;flex-wrap:wrap;}
+.proj-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:var(--ink3);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.proj-link:hover{color:var(--ink);border-color:var(--ink);}
+.proj-link svg{width:10px;height:10px;transition:transform .18s;}
+.proj-link:hover svg{transform:translate(2px,-2px);}
 
-      /* ── HIGHLIGHT CARD (security/featured) ── */
-      .project-card.featured {
-        border-left: 3px solid var(--ink);
-      }
+/* SECTION DIVIDER between software and research */
+.proj-section-divider{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.16em;text-transform:uppercase;padding:24px 0 0;margin-bottom:0;display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);}
+.proj-section-divider::after{content:"";flex:1;height:1px;background:var(--line);}
 
-      /* ── EXPERIENCE ── */
-      .exp-item {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        gap: 40px;
-        padding: 32px 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .exp-item:last-child {
-        border-bottom: none;
-      }
-      .exp-meta {
-      }
-      .exp-period {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.06em;
-        margin-bottom: 6px;
-      }
-      .exp-company {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink3);
-        letter-spacing: 0.03em;
-      }
-      .exp-role {
-        font-family: var(--serif);
-        font-size: 20px;
-        font-weight: 300;
-        color: var(--ink);
-        margin-bottom: 16px;
-      }
-      .exp-bullets {
-        list-style: none;
-      }
-      .exp-bullets li {
-        font-size: 14px;
-        color: var(--ink2);
-        line-height: 1.65;
-        padding-left: 16px;
-        position: relative;
-        margin-bottom: 8px;
-      }
-      .exp-bullets li::before {
-        content: "—";
-        position: absolute;
-        left: 0;
-        color: var(--ink4);
-        font-size: 12px;
-        top: 3px;
-      }
+/* EXPERIENCE */
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:28px 0;border-bottom:1px solid var(--line);}
+.exp-item:last-child{border-bottom:none;}
+.exp-period{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.06em;margin-bottom:4px;}
+.exp-company{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.04em;}
+.exp-role{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--ink);margin-bottom:14px;}
+.exp-bullets{list-style:none;}
+.exp-bullets li{font-size:13.5px;color:var(--ink2);line-height:1.65;padding-left:18px;position:relative;margin-bottom:6px;}
+.exp-bullets li::before{content:"—";position:absolute;left:0;color:var(--ink4);font-size:11px;top:3px;}
 
-      /* ── EDUCATION ── */
-      .edu-grid {
-        display: grid;
-        grid-template-columns: 1fr 1px;
-        gap: 1px;
-        background: var(--line);
-      }
-      .edu-card {
-        background: var(--paper);
-        padding: 36px;
-      }
-      .edu-year {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.08em;
-        margin-bottom: 12px;
-      }
-      .edu-school {
-        font-family: var(--serif);
-        font-size: 20px;
-        font-weight: 300;
-        color: var(--ink);
-        margin-bottom: 8px;
-        line-height: 1.2;
-      }
-      .edu-degree {
-        font-size: 13.5px;
-        color: var(--ink2);
-        margin-bottom: 12px;
-      }
-      .edu-detail {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: var(--ink4);
-        letter-spacing: 0.04em;
-        line-height: 1.7;
-      }
+/* EDUCATION — stacked list same as projects */
+.edu-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start;}
+.edu-item:last-child{border-bottom:none;}
+.edu-year{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.edu-type{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.04em;}
+.edu-school{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--ink);margin-bottom:6px;line-height:1.25;}
+.edu-degree{font-size:13.5px;color:var(--ink2);margin-bottom:10px;}
+.edu-detail{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.04em;line-height:1.9;}
 
-      /* ── CERTS ── */
-      .certs-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .cert-badge {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink2);
-        border: 1px solid var(--line);
-        padding: 8px 14px;
-        border-radius: 2px;
-        letter-spacing: 0.03em;
-        transition: background 0.2s;
-      }
-      .cert-badge:hover {
-        background: var(--paper2);
-      }
+/* CERTS — stacked list */
+.cert-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center;}
+.cert-item:last-child{border-bottom:none;}
+.cert-icon-wrap{font-size:18px;}
+.cert-name{font-size:13.5px;color:var(--ink);margin-bottom:3px;}
+.cert-type{font-family:var(--mono);font-size:10px;color:var(--ink4);letter-spacing:.06em;}
 
-      /* ── FOOTER ── */
-      footer {
-        padding: 48px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-      .footer-left {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink4);
-        letter-spacing: 0.04em;
-      }
-      .footer-right {
-        display: flex;
-        gap: 20px;
-      }
-      .footer-right a {
-        font-family: var(--mono);
-        font-size: 12px;
-        color: var(--ink3);
-        text-decoration: none;
-        letter-spacing: 0.04em;
-        transition: color 0.2s;
-      }
-      .footer-right a:hover {
-        color: var(--ink);
-      }
+/* FOOTER */
+footer{padding:44px 0;}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-l{font-family:var(--mono);font-size:11px;color:var(--ink4);letter-spacing:.05em;}
+.footer-r{display:flex;gap:20px;}
+.footer-r a{font-family:var(--mono);font-size:11px;color:var(--ink3);text-decoration:none;letter-spacing:.05em;transition:color .2s;}
+.footer-r a:hover{color:var(--ink);}
 
-      /* ── RESPONSIVE ── */
-      @media (max-width: 680px) {
-        .wrap {
-          padding: 0 20px;
-        }
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-        .project-card.wide {
-          grid-column: auto;
-        }
-        .edu-grid {
-          grid-template-columns: 1fr;
-        }
-        .exp-item {
-          grid-template-columns: 1fr;
-          gap: 12px;
-        }
-        .skill-row {
-          grid-template-columns: 1fr;
-          gap: 8px;
-        }
-        nav .nav-links {
-          display: none;
-        }
-      }
+/* FADE */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.fade.in{opacity:1;transform:none;}
 
-      /* ── ENTRANCE ANIMATION ── */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(16px);
-        transition:
-          opacity 0.5s ease,
-          transform 0.5s ease;
-      }
-      .fade-in.visible {
-        opacity: 1;
-        transform: none;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav>
-      <div class="wrap">
-        <a class="nav-logo" href="#">PS — 2026</a>
-        <ul class="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#about">About</a></li>
+/* RESPONSIVE */
+@media(max-width:700px){
+  .wrap{padding:0 18px;}
+  .proj-item,.exp-item,.edu-item,.cert-item{grid-template-columns:1fr;gap:10px;}
+  .skill-row{grid-template-columns:1fr;gap:8px;}
+  .stat-row{grid-template-columns:1fr 1fr;}
+  .nav-links,.nav-cta{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a class="nav-logo" href="#">
+      <span class="nav-dot"></span>PS · 2026
+    </a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:Psoni250305@gmail.com">Get in touch ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="wrap">
+    <div class="hero fade">
+      <div class="hero-badge">
+        <span class="nav-dot"></span>
+        Open to opportunities · B.Tech ECE · VIT Chennai
+      </div>
+      <h1>Priyanka Soni</h1>
+      <p class="hero-sub">Backend Engineer &nbsp;·&nbsp; AI Systems Developer &nbsp;·&nbsp; Electronics & Communication Engineering Student</p>
+      <p class="hero-desc">
+        I am a fourth-year Electronics and Communication Engineering student at VIT Chennai with a strong focus on backend engineering, distributed systems, and AI-powered applications. I build scalable backend services, local LLM applications, and security-focused software, while applying a systems-oriented approach developed through coursework in DSP, communication systems, and VLSI.
+      </p>
+      <div class="hero-links">
+        <a class="hero-link primary" href="mailto:Psoni250305@gmail.com">Email me</a>
+        <div class="hero-divider"></div>
+        <a class="hero-link" href="https://github.com/Priyankaaaa7" target="_blank">GitHub</a>
+        <a class="hero-link" href="https://www.linkedin.com/in/priyanka-soni-588437253/" target="_blank">LinkedIn</a>
+        <a class="hero-link" href="https://priyankaaaa7.github.io/portfolio_Priii/" target="_blank">Portfolio</a>
+        <a class="hero-link" href="tel:+919116384079">+91 91163 84079</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="border-bottom:1px solid var(--line);">
+  <div style="max-width:1080px;margin:0 auto;">
+    <div class="stat-row fade">
+      <div class="stat-cell">
+        <div class="stat-num">25</div>
+        <div class="stat-label">REST endpoints built</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">7</div>
+        <div class="stat-label">LLM agent tool functions</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">DSA problems solved</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Live shipped projects</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-num">01</span> Skills & Stack</div>
+    <div class="fade">
+      <div class="skill-row">
+        <span class="skill-cat">Languages</span>
+        <div class="tags">
+          <span class="tag hl">Python</span><span class="tag hl">C++</span>
+          <span class="tag">Java</span><span class="tag">SQL</span>
+          <span class="tag">Verilog</span><span class="tag">MATLAB</span><span class="tag">C</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Backend & APIs</span>
+        <div class="tags">
+          <span class="tag hl">FastAPI</span><span class="tag">Flask</span>
+          <span class="tag">REST APIs</span><span class="tag">WebSockets</span>
+          <span class="tag">SQLite</span><span class="tag">PostgreSQL</span>
+          <span class="tag">JWT Auth</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">AI & ML</span>
+        <div class="tags">
+          <span class="tag hl">Ollama / Qwen2.5</span>
+          <span class="tag">LLM Function Calling</span>
+          <span class="tag">Agentic Workflows</span>
+          <span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">DevOps</span>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span><span class="tag">AWS</span>
+          <span class="tag">CMake</span><span class="tag">Linux</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Security</span>
+        <div class="tags">
+          <span class="tag">Windows Firewall API</span>
+          <span class="tag">Dynamic Port Knocking</span>
+          <span class="tag">TOTP / pyotp</span>
+          <span class="tag">Threat Modelling</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">ECE / Research</span>
+        <div class="tags">
+          <span class="tag">DSP</span><span class="tag">OFDM / QAM</span>
+          <span class="tag">VLSI Verification</span>
+          <span class="tag">Icarus Verilog</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">LTspice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-num">02</span> Software Projects</div>
+
+    <!-- Sprandy -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">01</p>
+        <span class="proj-tag-pill ai">AI · Local-first</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Sprandy — Local-First AI Productivity Assistant</h3>
+        <p class="proj-stack">Python · FastAPI · SQLite · Ollama · Qwen2.5 · JavaScript · HTML · CSS</p>
+        <ul class="proj-bullets">
+          <li>Designed and developed a local-first AI productivity assistant using FastAPI, SQLite, and Ollama, implementing 25 REST APIs and a normalized relational database to support task management, journaling, and persistent conversations without cloud dependencies.</li>
+          <li>Integrated seven function-calling tools enabling natural language interaction for task management, journal retrieval, accountability tracking, and daily summaries.</li>
+          <li>Separated agent personality from core business logic by architecting a dedicated module for system prompt configuration, allowing tone changes without modifying data-access code.</li>
+          <li>Implemented a rule-based accountability engine that tracks task postponements and surfaces evidence-backed productivity insights through a dedicated REST endpoint.</li>
+          <li>Developed an interactive frontend using vanilla JavaScript with real-time dashboards and persistent local chat history across approximately 460 lines of JS, HTML, and CSS.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/Priyankaaaa7/Sprandy" target="_blank" class="proj-link">GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Port Knocking -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">02</p>
+        <span class="proj-tag-pill sec">Security Engineering</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Dynamic Port Knocking Security System</h3>
+        <p class="proj-stack">Python · Scapy · Windows Firewall API · Security Engineering</p>
+        <ul class="proj-bullets">
+          <li>Mitigated replay attacks by engineering a time-based dynamic knock-sequence engine with SHA-256 sequence generation and a ±1-minute validation window, addressing a key vulnerability class in static port-knocking designs.</li>
+          <li>Built a real-time HTML monitoring dashboard with JSON-logged knock attempts, authorized IP tracking, and brute-force and port-scan detection.</li>
+          <li>Designed the architecture to support TOTP-based multi-factor authentication via pyotp for mitigating risks associated with shared-secret authentication, with implementation in progress.</li>
+          <li>Developed threat model covering sequence interception, brute force, and replay attack vectors from initial design.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/Priyanka250305/Dynamic_PortKnock-windows" target="_blank" class="proj-link">GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SmartKart -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">03</p>
+        <span class="proj-tag-pill web">Full-Stack · Extension</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">SmartKart — AI Grocery Assistant</h3>
+        <p class="proj-stack">Python · Flask · Chrome Extension MV3 · JSON Persistence · CI/CD</p>
+        <ul class="proj-bullets">
+          <li>Shipped a four-feature Chrome Extension across 12 Flask REST routes covering recipe generation, virtual kitchen simulation, budget tracking, and spoilt-guard modules.</li>
+          <li>Addressed Manifest V3 service-worker limitations using Chrome Storage APIs and structured backend persistence to maintain application state across forced restarts.</li>
+          <li>Integrated expiry-aware recommendation logic with the Spoonacular API, reducing simulated household food wastage by approximately 30%.</li>
+          <li>Deployed the backend live on Railway across 66 commits, taking the project from local prototype to a publicly accessible service.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/Priyankaaaa7/SmartKart" target="_blank" class="proj-link">GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Service -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">04</p>
+        <span class="proj-tag-pill sys">Systems · Infrastructure</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Real-Time Notification Service</h3>
+        <p class="proj-stack">C++ · WebSockets · Multithreading · Docker · CMake · GitHub Actions</p>
+        <ul class="proj-bullets">
+          <li>Implemented a persistent, thread-safe WebSocket server in C++ using a mutex-guarded connection map for concurrent client session management, preventing race conditions under parallel load.</li>
+          <li>Configured a multi-stage Docker build with CMake and Redis pub/sub integration via libhiredis, ensuring reproducible builds across environments.</li>
+          <li>Integrated a GitHub Actions CI workflow that builds and validates the project with CMake on every push and pull request, catching regressions before merge.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/Priyanka250305/notif" target="_blank" class="proj-link">GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expecting Ease -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">05</p>
+        <span class="proj-tag-pill health">Healthcare · Hackathon</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Expecting Ease — Pregnancy Healthcare Portal</h3>
+        <p class="proj-stack">Python · JavaScript · HTML · CSS · REST APIs</p>
+        <ul class="proj-bullets">
+          <li>Developed a healthcare platform featuring appointment scheduling, real-time chatbot interactions, and pregnancy care resources, built for the MEDITHON national hackathon.</li>
+          <li>Implemented REST APIs supporting real-time user interactions across the frontend and backend.</li>
+          <li>Advanced to the MEDITHON finals among over 100 teams as part of an all-girls team.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://priyankaaaa7.github.io/MEDITHON_PANS/index.html" target="_blank" class="proj-link">Live Demo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECE divider -->
+    <div class="proj-section-divider" style="margin-top:16px;"><span class="sec-num" style="color:var(--ink4);">ECE Research Projects</span></div>
+
+    <!-- Green Modulation -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">R-01</p>
+        <span class="proj-tag-pill ai">Wireless · Energy</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Green Modulation in Wireless Sensor Networks</h3>
+        <p class="proj-stack">Arduino · GFSK · Wireless Communication · Energy Optimisation</p>
+        <ul class="proj-bullets">
+          <li>Built an Arduino-based WSN prototype achieving 0.29 µJ/bit energy efficiency with 97–99% packet reliability.</li>
+          <li>Applied a logical ID cycling technique to simulate 100-node network scalability without physical hardware scaling.</li>
+          <li>Demonstrated 2.5–3× energy savings over standard modulation schemes through hardware experimentation.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://drive.google.com/file/d/13YJTNFm1Hncq0YTNspqTw4WzBbfVOGpG/view" target="_blank" class="proj-link">Report <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- OFDM -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">R-02</p>
+        <span class="proj-tag-pill sys">DSP · Communications</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Toolbox-Free 16-QAM OFDM System Simulation</h3>
+        <p class="proj-stack">MATLAB · Digital Signal Processing · Communication Theory</p>
+        <ul class="proj-bullets">
+          <li>Implemented an end-to-end OFDM physical layer in MATLAB with 16-QAM modulation, 64 subcarriers, and cyclic prefix — using no toolbox dependencies.</li>
+          <li>Developed custom QAM modulation and demodulation, AWGN channel modelling, and a 4-tap multipath channel simulation.</li>
+          <li>Achieved BER below 10⁻³ at 18 dB SNR, with error-free performance above 24 dB.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://drive.google.com/file/d/1xk60Ui-nYUOyyCUXytjwzNvK3tK4NeiE/view" target="_blank" class="proj-link">Report <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICU -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">R-03</p>
+        <span class="proj-tag-pill health">Biomedical · AI</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">AI-Based ICU Multi-Patient Monitoring System</h3>
+        <p class="proj-stack">MATLAB · Biomedical Signal Processing · Rule-Based AI</p>
+        <ul class="proj-bullets">
+          <li>Implemented simultaneous ECG, respiration rate, and SpO₂ signal monitoring with digital filtering and R-peak detection.</li>
+          <li>Developed a rule-based triage algorithm for real-time patient state classification.</li>
+          <li>Designed multi-panel dashboards for live visualization and anomaly detection.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://drive.google.com/file/d/10AxvcnP4LEieSjBFooD_RCJem9zwmyd9/view" target="_blank" class="proj-link">Report <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gesture -->
+    <div class="proj-item fade">
+      <div class="proj-meta">
+        <p class="proj-num">R-04</p>
+        <span class="proj-tag-pill web">Embedded Systems</span>
+      </div>
+      <div class="proj-body">
+        <h3 class="proj-title">Gesture-Based Music Control (8051)</h3>
+        <p class="proj-stack">AT89S52 · ADXL335 · HC-05 Bluetooth · Assembly · Embedded</p>
+        <ul class="proj-bullets">
+          <li>Developed hands-free music control using an 8051 microcontroller and ADXL335 accelerometer.</li>
+          <li>Wrote assembly-level firmware to classify tilt gestures and generate corresponding UART control commands.</li>
+          <li>Validated low-latency wireless response through real-time gesture testing.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://drive.google.com/file/d/17VtvdE0bq_HkzKd505Uz5k4TaqGd6AcO/view" target="_blank" class="proj-link">Report <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-num">03</span> Experience</div>
+
+    <div class="exp-item fade">
+      <div>
+        <p class="exp-period">May 2025 — Jul 2025</p>
+        <p class="exp-company">Ethnus</p>
+      </div>
+      <div>
+        <p class="exp-role">VLSI Design & Verification Intern</p>
+        <ul class="exp-bullets">
+          <li>Designed and simulated Verilog HDL modules for finite state machines and digital logic circuits using Icarus Verilog and GTKWave on Linux.</li>
+          <li>Developed structured testbench validation workflows to verify digital logic correctness, building systematic debugging discipline applicable to software testing.</li>
+          <li>Performed signal tracing and timing analysis to validate digital logic and strengthen understanding of hardware-software interactions.</li>
         </ul>
       </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="about">
-    <div class="wrap">
-      <div class="hero fade-in">
-        <p class="hero-eyebrow">
-          <span class="status-dot"></span>Open to opportunities · B.Tech ECE ·
-          VIT Chennai
-        </p>
-        <h1>Priyanka Soni</h1>
-        <p class="hero-desc">
-          Backend engineer and ECE researcher. I build production systems —
-          APIs, security tooling, real-time infrastructure — and work across
-          DSP, wireless communications, and VLSI verification. Two domains, one
-          mindset: systems that are intentional and built to last.
-          
-        </p>
-        <div class="hero-meta">
-          <a href="mailto:Psoni250305@gmail.com">psoni250305@gmail.com</a> 
-          <a href="https://github.com/Priyankaaaa7" target="_blank"
-            >github.com/Priyankaaaa7</a
-          >
-          <a href="https://www.linkedin.com/in/priyanka-soni-588437253/">LinkedIn</a>
-          <a href="tel:+919116384079">+91 91163 84079</a>
-        </div>
-      </div>
-    </div>
-    </section>
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="wrap">
-        <div class="section-label">Skills & Stack</div>
-        <div class="skills-table fade-in">
-          <div class="skill-row">
-            <span class="skill-category">Languages</span>
-            <div class="skill-items">
-              <span class="tag">HTML</span>
-              <span class="tag">Python</span>
-              <span class="tag">C++</span>
-              <span class="tag">Java</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Verilog</span>
-              <span class="tag">MATLAB</span>
-              <span class="tag">C</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-category">Backend & APIs</span>
-            <div class="skill-items">
-              <span class="tag ">Flask</span>
-              <span class="tag">RESTful APIs</span>
-              <span class="tag">WebSockets</span>
-              <span class="tag">API Versioning</span>
-              <span class="tag">Async Programming</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-category">Security</span>
-            <div class="skill-items">
-              <span class="tag">Port Knocking</span>
-              <span class="tag">Windows Firewall API</span>
-              <span class="tag">TOTP / pyotp</span>
-              <span class="tag">Threat Modelling</span>
-              <span class="tag">Replay Attack Mitigation</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-category">DevOps</span>
-            <div class="skill-items">
-              <span class="tag">Docker</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">CI/CD</span>
-              <span class="tag">Linux</span>
-              <span class="tag">AWS (EC2, S3)</span>
-              <span class="tag">CMake</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-category">ECE / Research</span>
-            <div class="skill-items">
-              <span class="tag">DSP</span>
-              <span class="tag">OFDM / QAM</span>
-              <span class="tag">Embedded Systems</span>
-              <span class="tag">VLSI Verification</span>
-              <span class="tag">LTspice</span>
-              <span class="tag">Cadence</span>
-              <span class="tag">Icarus Verilog</span>
-            </div>
-          </div>
-          <div class="skill-row">
-            <span class="skill-category">DSA</span>
-            <div class="skill-items">
-              <span class="tag">200+ Problems</span>
-              <span class="tag">LeetCode</span>
-              <span class="tag">HackerRank</span>
-              <span class="tag">Trees · Graphs </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOFTWARE PROJECTS -->
-    <section id="work">
-      <div class="wrap">
-        <div class="section-label">Software Projects</div>
-      </div>
-      <div class="wrap" style="padding: 0; max-width: 1080px; margin: 0 auto">
-        <div class="projects-grid">
-          <!-- Dynamic Port Knocking -->
-          <div class="project-card featured fade-in">
-            <p class="proj-num">01 — Security Engineering</p>
-            <h3 class="proj-title">
-              Dynamic Port Knocking<br />Security System
-            </h3>
-            <p class="proj-stack">
-              Python · Windows Firewall API · Flask · Security Engineering
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Built a time-based dynamic knock sequence engine with real
-                Windows Firewall rule manipulation — replay attacks mitigated
-                through sequence expiry and rotating secrets
-              </li>
-              <li>
-                Developed IP monitoring dashboard with real-time visibility into
-                access attempts, authorised IPs, and knock history
-              </li>
-              <li>
-                Identified single point of failure in secret key design —
-                currently implementing TOTP-based second-factor authentication
-                via pyotp
-              </li>
-              <li>
-                 Designed with threat model in mind: sequence interception, brute force, and replay attack vectors all considered
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://github.com/Priyanka250305/Dynamic_PortKnock-windows"
-                target="_blank"
-                class="proj-link"
-              >
-                GitHub
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- SmartKart -->
-          <div class="project-card fade-in">
-            <p class="proj-num">02 — Full-Stack / Extension</p>
-            <h3 class="proj-title">SmartKart — AI Grocery<br />Assistant</h3>
-            <p class="proj-stack">
-              Python · Flask · PostgreSQL · Chrome Extension MV3 · CI/CD
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                4-feature Chrome Extension (Manifest V3): recipe generator,
-                virtual kitchen simulator, budget tracker, spoilt guard — all
-                backed by a live Flask REST API
-              </li>
-              <li>
-                Architected service worker → REST API → PostgreSQL pipeline,
-                handling MV3 stateless constraints via chrome.storage
-              </li>
-              <li>
-                Spoilt guard reduced simulated food wastage ~30% through
-                expiry-aware recommendation logic with Spoonacular API
-              </li>
-              <li>
-                Shipped with unit + integration tests and CI/CD pipeline
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://github.com/Priyankaaaa7/SmartKart.git"
-                target="_blank"
-                class="proj-link"
-              >
-                GitHub
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Real-Time Notification Service -->
-          <div class="project-card fade-in">
-            <p class="proj-num">03 — Systems / Infrastructure</p>
-            <h3 class="proj-title">Real-Time Notification<br />Service</h3>
-            <p class="proj-stack">
-              C++ · WebSockets · Multithreading · Docker · CMake · GitHub
-              Actions
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Implementing persistent WebSocket server in C++ with thread-safe
-                client session management via mutex-synchronised connection maps
-              </li>
-              <li>
-                Containerised via Docker with CMake-configured reproducible
-                builds across environments
-              </li>
-              <li>
-                GitHub Actions CI pipeline for automated build validation on
-                each push
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://github.com/Priyanka250305/notif"
-                target="_blank"
-                class="proj-link"
-              >
-                GitHub
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Expecting Ease -->
-          <div class="project-card fade-in">
-            <p class="proj-num">04 — Web Platform</p>
-            <h3 class="proj-title">Expecting Ease —<br />Healthcare Portal</h3>
-            <p class="proj-stack">
-              Python · JavaScript · HTML · CSS · REST APIs
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Healthcare platform with appointment scheduling, real-time
-                chatbot interactions, and pregnancy care resources
-              </li>
-              <li>
-                Implemented REST APIs supporting real-time user interactions
-                across frontend and backend
-              </li>
-              <li>
-                Advanced to MEDITHON Hackathon finals among 100+ teams as part
-                of all-girls team
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://priyankaaaa7.github.io/MEDITHON_PANS/index.html"
-                target="_blank"
-                class="proj-link"
-              >
-                Live Demo
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ECE RESEARCH PROJECTS -->
-    <section id="research">
-      <div class="wrap">
-        <div class="section-label">ECE Research Projects</div>
-      </div>
-      <div class="wrap" style="padding: 0; max-width: 1080px; margin: 0 auto">
-        <div class="projects-grid">
-          <!-- Green Modulation -->
-          <div class="project-card fade-in">
-            <p class="proj-num">R-01 — Wireless / Energy</p>
-            <h3 class="proj-title">
-              Green Modulation in<br />Wireless Sensor Networks
-            </h3>
-            <p class="proj-stack">
-              Arduino · GFSK · Wireless Communication · Energy Optimisation
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Arduino-based WSN prototype achieving 0.29 µJ/bit energy with
-                97–99% packet reliability
-              </li>
-              <li>
-                Logical ID cycling technique to simulate 100-node network
-                scalability
-              </li>
-              <li>
-                Demonstrated 2.5–3× energy savings over standard schemes via
-                hardware experimentation
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://drive.google.com/file/d/13YJTNFm1Hncq0YTNspqTw4WzBbfVOGpG/view"
-                target="_blank"
-                class="proj-link"
-              >
-                Report
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- OFDM -->
-          <div class="project-card fade-in">
-            <p class="proj-num">R-02 — DSP / Communications</p>
-            <h3 class="proj-title">
-              Toolbox-Free 16-QAM<br />OFDM System Simulation
-            </h3>
-            <p class="proj-stack">
-              MATLAB · Digital Signal Processing · Communication Theory
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                End-to-end OFDM physical layer: 16-QAM, 64 subcarriers, cyclic
-                prefix — no toolbox dependencies
-              </li>
-              <li>
-                Custom QAM modulation/demodulation, AWGN modelling, and 4-tap
-                multipath channel simulation
-              </li>
-              <li>
-                BER &lt; 10⁻³ at 18 dB SNR; error-free performance above 24 dB
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://drive.google.com/file/d/1xk60Ui-nYUOyyCUXytjwzNvK3tK4NeiE/view?usp=drive_link"
-                target="_blank"
-                class="proj-link"
-              >
-                Report
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- ICU Monitoring -->
-          <div class="project-card fade-in">
-            <p class="proj-num">R-03 — Biomedical / AI</p>
-            <h3 class="proj-title">
-              AI-Based ICU Multi-Patient<br />Monitoring System
-            </h3>
-            <p class="proj-stack">
-              MATLAB · Biomedical Signal Processing · Rule-Based AI
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Simultaneous ECG, respiration rate, and SpO₂ signal monitoring
-                with digital filtering and R-peak detection
-              </li>
-              <li>
-                Rule-based AI triage algorithm classifying patient states in
-                real time
-              </li>
-              <li>
-                Multi-panel dashboards for visualisation and anomaly detection
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://drive.google.com/file/d/10AxvcnP4LEieSjBFooD_RCJem9zwmyd9/view"
-                target="_blank"
-                class="proj-link"
-              >
-                Report
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Gesture Music -->
-          <div class="project-card fade-in">
-            <p class="proj-num">R-04 — Embedded Systems</p>
-            <h3 class="proj-title">Gesture-Based Music<br />Control (8051)</h3>
-            <p class="proj-stack">
-              AT89S52 · ADXL335 · HC-05 Bluetooth · Assembly · Embedded
-            </p>
-            <ul class="proj-bullets">
-              <li>
-                Hands-free music control using 8051 microcontroller and ADXL335
-                accelerometer
-              </li>
-              <li>
-                Assembly-level firmware classifying tilt gestures and generating
-                UART control commands
-              </li>
-              <li>
-                Low-latency wireless response validated through real-time
-                gesture testing
-              </li>
-            </ul>
-            <div class="proj-links">
-              <a
-                href="https://drive.google.com/file/d/17VtvdE0bq_HkzKd505Uz5k4TaqGd6AcO/view"
-                target="_blank"
-                class="proj-link"
-              >
-                Report
-                <svg
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2.5 9.5L9.5 2.5M4 2.5h5.5v5.5" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="wrap">
-        <div class="section-label">Experience</div>
-        <div>
-          <div class="exp-item fade-in">
-            <div class="exp-meta">
-              <p class="exp-period">May 2025 — Jul 2025</p>
-              <p class="exp-company">Ethnus</p>
-            </div>
-            <div>
-              <p class="exp-role">VLSI Design & Verification Intern</p>
-              <ul class="exp-bullets">
-                <li>
-                  Designed and simulated Verilog HDL modules for FSMs and
-                  digital logic circuits using Icarus Verilog and GTKWave on
-                  Linux
-                </li>
-                <li>
-                  Developed structured testbench validation workflows —
-                  debugging discipline directly applicable to software testing
-                </li>
-                <li>
-                  Strengthened low-level systems thinking through hardware-level
-                  signal tracing and timing analysis
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="exp-item fade-in">
-            <div class="exp-meta">
-              <p class="exp-period">Jan 2024 — Oct 2024</p>
-              <p class="exp-company">VIT Chennai</p>
-            </div>
-            <div>
-              <p class="exp-role">AI Club — Core Member</p>
-              <ul class="exp-bullets">
-                <li>
-                  Contributed to student-led AI/ML projects with emphasis on
-                  model correctness, testing workflows, and reproducibility
-                </li>
-                <li>
-                  Organised a university-level hackathon with 100+ participants
-                </li>
-                <li>
-                  Mentored juniors on Git-based collaboration and project
-                  architecture
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section>
-      <div class="wrap">
-        <div class="section-label">Education</div>
-      </div>
-      <div class="wrap" style="padding: 0; max-width: 1080px; margin: 0 auto">
-        <div class="edu-grid fade-in">
-          <div class="edu-card">
-            <p class="edu-year">2023 — 2027 (Expected)</p>
-            <h3 class="edu-school">Vellore Institute of Technology, Chennai</h3>
-            <p class="edu-degree">
-              B.Tech in Electronics & Communication Engineering
-            </p>
-            <p class="edu-detail">
-              CGPA: 8.1 <br />DSA · OS · DBMS · Computer Networks · Software
-              Engineering · Communication Systems · DSP · VLSI
-            </p>
-          </div>
-          <br />
-          <div class="edu-card">
-            <p class="edu-year">March 2023</p>
-            <h3 class="edu-school">Warren Academy,<br />Jaipur</h3>
-            <p class="edu-degree">CBSE Class XII — PCM + IT</p>
-            <p class="edu-detail">Percentage: 76.2%</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTS -->
-    <section>
-      <div class="wrap">
-        <div class="section-label">Certifications & Achievements</div>
-        <div class="certs-row fade-in">
-          <span class="cert-badge"
-            >Google GenAI Program — Cloud Silver Badge</span
-          >
-          <span class="cert-badge">IIT Bombay Python Certification</span>
-          <span class="cert-badge">HackerRank 4★ Python</span>
-          <span class="cert-badge">HackerRank 3★ Java · C++ · SQL</span>
-          <span class="cert-badge">BCG GenAI Simulation (Forage)</span>
-          <span class="cert-badge">MEDITHON Hackathon Finalist</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <div class="wrap">
-      <footer>
-        <p class="footer-left">Priyanka Soni · Built 2026</p>
-        <div class="footer-right">
-          <a href="mailto:Psoni250305@gmail.com">Email</a>
-          <a href="https://github.com/Priyankaaaa7" target="_blank">GitHub</a>
-          <a href="tel:+919116384079">Phone</a>
-        </div>
-      </footer>
     </div>
 
-    <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("visible");
-              observer.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.08 },
-      );
+    <div class="exp-item fade">
+      <div>
+        <p class="exp-period">Jan 2024 — Oct 2024</p>
+        <p class="exp-company">VIT Chennai</p>
+      </div>
+      <div>
+        <p class="exp-role">AI Club — Core Member</p>
+        <ul class="exp-bullets">
+          <li>Contributed to student-led AI and ML projects with emphasis on model correctness, reproducibility, and structured testing workflows.</li>
+          <li>Coordinated a university-wide hackathon involving over 100 participants, collaborating with cross-functional student teams to manage planning and execution.</li>
+          <li>Mentored junior members on Git-based collaboration workflows and software project architecture.</li>
+        </ul>
+      </div>
+    </div>
 
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
+  </div>
+</section>
 
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-          const target = document.querySelector(a.getAttribute("href"));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-      });
-    </script>
-  </body>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-num">04</span> Education</div>
+
+    <div class="edu-item fade">
+      <div>
+        <p class="edu-year">2023 — 2027 (Expected)</p>
+        <p class="edu-type">Undergraduate</p>
+      </div>
+      <div>
+        <h3 class="edu-school">Vellore Institute of Technology, Chennai</h3>
+        <p class="edu-degree">B.Tech in Electronics & Communication Engineering</p>
+        <p class="edu-detail">CGPA: 7.74<br/>Data Structures & Algorithms &nbsp;·&nbsp; Operating Systems &nbsp;·&nbsp; DBMS &nbsp;·&nbsp; Computer Networks<br/>Software Engineering &nbsp;·&nbsp; Communication Systems &nbsp;·&nbsp; DSP &nbsp;·&nbsp; VLSI</p>
+      </div>
+    </div>
+
+    <div class="edu-item fade">
+      <div>
+        <p class="edu-year">March 2023</p>
+        <p class="edu-type">CBSE Class XII</p>
+      </div>
+      <div>
+        <h3 class="edu-school">Warren Academy, Jaipur</h3>
+        <p class="edu-degree">PCM + Information Technology</p>
+        <p class="edu-detail">Percentage: 76.2%</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTS -->
+<section>
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-num">05</span> Certifications & Achievements</div>
+
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">🏆</div>
+      <div>
+        <p class="cert-name">MEDITHON Hackathon Finalist</p>
+        <p class="cert-type">Advanced to finals among 100+ teams &nbsp;·&nbsp; All-girls team</p>
+      </div>
+    </div>
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">☁️</div>
+      <div>
+        <p class="cert-name">Google GenAI Program — Cloud Silver Badge</p>
+        <p class="cert-type">Gemini API &nbsp;·&nbsp; Prompt Engineering &nbsp;·&nbsp; Multimodal AI Workflows</p>
+      </div>
+    </div>
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">🤖</div>
+      <div>
+        <p class="cert-name">BCG GenAI Job Simulation (Forage)</p>
+        <p class="cert-type">AI chatbot prototype &nbsp;·&nbsp; Real business use case</p>
+      </div>
+    </div>
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">📐</div>
+      <div>
+        <p class="cert-name">IIT Bombay Python Certification</p>
+        <p class="cert-type">Core Python &nbsp;·&nbsp; Problem solving</p>
+      </div>
+    </div>
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">🐍</div>
+      <div>
+        <p class="cert-name">HackerRank 4★ Python &nbsp;·&nbsp; 3★ Java, C++, SQL</p>
+        <p class="cert-type">HackerRank skill certifications</p>
+      </div>
+    </div>
+    <div class="cert-item fade">
+      <div class="cert-icon-wrap">💡</div>
+      <div>
+        <p class="cert-name">200+ DSA Problems Solved</p>
+        <p class="cert-type">LeetCode &nbsp;·&nbsp; HackerRank &nbsp;·&nbsp; Arrays, Trees, Graphs, Stacks</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p class="footer-l">Priyanka Soni · 2026 · Open to Software Engineering & Backend Engineering Internships</p>
+    <div class="footer-r">
+      <a href="mailto:Psoni250305@gmail.com">Email</a>
+      <a href="https://github.com/Priyankaaaa7" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/priyanka-soni-588437253/" target="_blank">LinkedIn</a>
+      <a href="tel:+919116384079">Phone</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
 </html>
